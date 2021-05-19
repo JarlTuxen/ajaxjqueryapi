@@ -30,6 +30,20 @@ public class CarController {
         return ResponseEntity.status(HttpStatus.OK).body(carList);
     }
 
+    // HTTP Get by ID
+    @GetMapping("/car/{id}")
+    public ResponseEntity<Optional<Car>> findById(@PathVariable Long id)
+    {
+        Optional<Car> optionalCar = carRespository.findById(id);
+        if (optionalCar.isPresent()){
+            return ResponseEntity.status(HttpStatus.OK).body(optionalCar);
+        }
+        else{
+            //Not found
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(optionalCar);
+        }
+    }
+
     // HTTP Post, ie. create
     @CrossOrigin(origins = "*", exposedHeaders = "Location")
     @PostMapping(value = "/car", consumes = "application/json")

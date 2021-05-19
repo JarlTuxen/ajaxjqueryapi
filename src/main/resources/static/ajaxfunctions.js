@@ -19,7 +19,7 @@ function getCars() {
 
 function preventSubmit(form){
     form.submit(function(event){
-       event.preventDefault(); // forhindr formen i at blive sendt
+       event.preventDefault(); // forhindr formen i at blive sendt, når der trykkes submit
        createCar($("#name").val()); // tekst i inputfeltet
     });
 }
