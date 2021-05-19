@@ -23,7 +23,7 @@ public class CarController {
     @GetMapping("/car")
     public ResponseEntity<List<Car>> findAll(){
         //findAll recipes and return
-        List<Car> carList =new ArrayList<>();
+        List<Car> carList = new ArrayList<>();
         for (Car car:carRespository.findAll()){
             carList.add(car);
         }
@@ -49,6 +49,7 @@ public class CarController {
     @PostMapping(value = "/car", consumes = "application/json")
     public ResponseEntity<Car> create(@RequestBody Car car) {
         Car newCar = carRespository.save(car);
+        //insert location in response header
         return ResponseEntity.ok(newCar);
     }
 
