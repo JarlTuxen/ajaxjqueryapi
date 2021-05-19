@@ -35,6 +35,7 @@ function createCar(carName){
        data:JSON.stringify(createCarObject),
        success:function(data){
            console.log("Car created: " + data.name);
+           $("#carList").append("<div>" + data.name + "</div>");
            $("#status").html("<br>Svar fra server OK");
        },
         error:function(data){
