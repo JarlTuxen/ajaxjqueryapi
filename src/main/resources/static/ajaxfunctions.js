@@ -1,5 +1,5 @@
 function getCars() {
-    console.log("GET car");
+    console.log("GET car"); //log til consol
     //Ajax request - hent biler
     $.ajax({
         url:"/car",
@@ -7,12 +7,12 @@ function getCars() {
         contentType:"application/JSON",
         success:function (data) {
             $.each(data, function (index, item) { //iterer over collection i data
-                $("#carList").append("<div>" + item.name + "</div>")
+                $("#carList").append("<div>" + item.name + "</div>") //tilføj ny div til carlist
             })
-            $("#status").html("<br>Svar fra server OK");
+            $("#status").html("Svar fra server OK");
         },
         error:function (data) {
-            $("#status").html("<br>Svar fra server ERROR");
+            $("#status").html("Svar fra server ERROR");
         }
     });
 }
